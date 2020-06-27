@@ -1,6 +1,5 @@
 [
   {
-    "id": "11",
     "restaurantId": "11",
     "name": "A2B",
     "city": "Btm Layout",
@@ -13,7 +12,6 @@
     ]
   },
   {
-    "id": "12",
     "restaurantId": "12",
     "name": "A2B",
     "city": "Electronic City",
