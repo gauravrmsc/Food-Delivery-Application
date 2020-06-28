@@ -109,7 +109,7 @@ public class RestaurantControllerTest {
         .build().toUri();
 
     assertEquals(RESTAURANT_API_URI + "?latitude=91&longitude=20", uri.toString());
-
+    
     MockHttpServletResponse response = mvc.perform(
         get(uri.toString()).accept(APPLICATION_JSON_UTF8)
     ).andReturn().getResponse();

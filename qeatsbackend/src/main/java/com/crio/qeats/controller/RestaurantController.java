@@ -17,10 +17,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 // TODO: CRIO_TASK_MODULE_RESTAURANTSAPI
 // Implement Controller using Spring annotations.
 // Remember, annotations have various "targets". They can be class level, method level or others.
+@RestController
 @RequestMapping("/qeats/v1")
 public class RestaurantController {
 
@@ -36,6 +38,11 @@ public class RestaurantController {
   private static final Logger log = LogManager.getLogger(RestaurantController.class);
   @Autowired
   private RestaurantService restaurantService;
+
+  @RequestMapping("/")
+  public String hello() {
+    return "Hello";
+  }
 
   @GetMapping(RESTAURANTS_API)
   public ResponseEntity<GetRestaurantsResponse> getRestaurants(

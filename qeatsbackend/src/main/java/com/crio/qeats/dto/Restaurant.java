@@ -7,9 +7,8 @@
 
 package com.crio.qeats.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.List;
-
-
 
 // TODO: CRIO_TASK_MODULE_SERIALIZATION
 //  Implement Restaurant class.
@@ -28,8 +27,9 @@ import java.util.List;
 //    "South Indian"
 //  ]
 // }
-
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Restaurant {
+  String id;
   String restaurantId;
   String name;
   String city;
@@ -39,78 +39,84 @@ public class Restaurant {
   String opensAt;
   String closesAt;
   List<String> attributes;
-  
+
   public String getRestaurantId() {
     return restaurantId;
   }
-  
+
   public void setRestaurantId(String restaurantId) {
     this.restaurantId = restaurantId;
   }
-  
+
   public String getName() {
     return name;
   }
-  
+
   public void setName(String name) {
     this.name = name;
   }
-  
+
   public String getCity() {
     return city;
   }
-  
+
   public void setCity(String city) {
     this.city = city;
   }
-  
+
   public String getImageUrl() {
     return imageUrl;
   }
-  
+
   public void setImageUrl(String imageUrl) {
     this.imageUrl = imageUrl;
   }
-  
+
   public double getLatitude() {
     return latitude;
   }
-  
+
   public void setLatitude(double latitude) {
     this.latitude = latitude;
   }
-  
+
   public double getLongitude() {
     return longitude;
   }
-  
+
   public void setLongitude(double longitude) {
     this.longitude = longitude;
   }
-  
+
   public String getOpensAt() {
     return opensAt;
   }
-  
+
   public void setOpensAt(String opensAt) {
     this.opensAt = opensAt;
   }
-  
+
   public String getClosesAt() {
     return closesAt;
   }
-  
+
   public void setClosesAt(String closesAt) {
     this.closesAt = closesAt;
   }
-  
+
   public List<String> getAttributes() {
     return attributes;
   }
-  
+
   public void setAttributes(List<String> attributes) {
     this.attributes = attributes;
   }
+
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
 }
-  
-  
