@@ -61,8 +61,8 @@ public class RestaurantRepositoryServiceImpl implements RestaurantRepositoryServ
   // 1. Implement findAllRestaurantsCloseby.
   // 2. Remember to keep the precision of GeoHash in mind while using it as a key.
   // Check RestaurantRepositoryService.java file for the interface contract.
-  public List<Restaurant> findAllRestaurantsCloseBy(Double latitude, Double longitude, LocalTime currentTime,
-      Double servingRadiusInKms) {
+  public List<Restaurant> findAllRestaurantsCloseBy(Double latitude, Double longitude, 
+      LocalTime currentTime, Double servingRadiusInKms) {
 
     List<Restaurant> restaurants = new ArrayList<>();
     List<RestaurantEntity> restaurantEntityList = restaurantRepository.findAll();
@@ -94,8 +94,8 @@ public class RestaurantRepositoryServiceImpl implements RestaurantRepositoryServ
    * @return boolean True if restaurant falls within serving radius and is open,
    *         false otherwise
    */
-  private boolean isRestaurantCloseByAndOpen(RestaurantEntity restaurantEntity, LocalTime currentTime, Double latitude,
-      Double longitude, Double servingRadiusInKms) {
+  private boolean isRestaurantCloseByAndOpen(RestaurantEntity restaurantEntity,
+       LocalTime currentTime, Double latitude, Double longitude, Double servingRadiusInKms) {
     if (isOpenNow(currentTime, restaurantEntity)) {
       return GeoUtils.findDistanceInKm(latitude, longitude, restaurantEntity.getLatitude(),
           restaurantEntity.getLongitude()) < servingRadiusInKms;
