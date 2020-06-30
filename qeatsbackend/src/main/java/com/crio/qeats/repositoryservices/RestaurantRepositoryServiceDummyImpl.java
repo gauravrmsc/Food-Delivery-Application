@@ -15,7 +15,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 // CRIO_UNCOMMENT_ONLY_START_MODULE_RESTAURANTSAPI
-@Service
+//@Service
 // CRIO_UNCOMMENT_ONLY_END_MODULE_RESTAURANTSAPI
 public class RestaurantRepositoryServiceDummyImpl implements RestaurantRepositoryService {
   private static final String FIXTURES = "fixtures/exchanges";
