@@ -23,19 +23,19 @@ public class GetRestaurantsRequest {
   private Double longitude;
   private String searchFor;
 
-  public double getLatitude() {
+  public Double getLatitude() {
     return this.latitude;
   }
 
-  public void setLatitude(double latitude) {
+  public void setLatitude(Double latitude) {
     this.latitude = latitude;
   }
 
-  public double getLongitude() {
+  public Double getLongitude() {
     return this.longitude;
   }
 
-  public void setLongitude(double longitude) {
+  public void setLongitude(Double longitude) {
     this.longitude = longitude;
   }
 
@@ -47,7 +47,7 @@ public class GetRestaurantsRequest {
     this.searchFor = searchFor;
   }
 
-  public GetRestaurantsRequest(double latitude, double longitude) {
+  public GetRestaurantsRequest(Double latitude, Double longitude) {
     this.latitude = latitude;
     this.longitude = longitude;
   }
