@@ -8,6 +8,10 @@
 package com.crio.qeats.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
 // TODO: CRIO_TASK_MODULE_SERIALIZATION
@@ -27,6 +31,8 @@ import java.util.List;
 //    "South Indian"
 //  ]
 // }
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Restaurant {
   String id;
