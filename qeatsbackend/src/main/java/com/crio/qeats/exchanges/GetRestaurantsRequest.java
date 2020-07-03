@@ -19,8 +19,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class GetRestaurantsRequest {
-  private double latitude;
-  private double longitude;
+  private Double latitude;
+  private Double longitude;
   private String searchFor;
 
   public double getLatitude() {
