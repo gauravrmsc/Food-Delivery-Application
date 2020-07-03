@@ -100,6 +100,20 @@ public class RestaurantControllerTest {
   }
 
 
+  //@Test
+  //public void validRequest() throws Exception {
+  //  URI uri = UriComponentsBuilder
+  //        .fromPath(RESTAURANT_API_URI)
+  //        .queryParam("longitued","85.387090")
+  //        .queryParam("latitude","26.121435")
+  //        .build().toUri();
+  //  MockHttpServletResponse response = mvc.perform(
+  //      get(uri.toString()).accept(APPLICATION_JSON_UTF8)
+  //  ).andReturn().getResponse();
+
+  //  assertEquals(200, response.getStatus());
+  //}
+
   @Test
   public void invalidLatitudeResultsInBadHttpRequest() throws Exception {
     URI uri = UriComponentsBuilder

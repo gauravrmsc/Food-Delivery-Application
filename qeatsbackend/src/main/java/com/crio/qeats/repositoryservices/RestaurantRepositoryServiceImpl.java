@@ -63,12 +63,15 @@ public class RestaurantRepositoryServiceImpl implements RestaurantRepositoryServ
   // Check RestaurantRepositoryService.java file for the interface contract.
   public List<Restaurant> findAllRestaurantsCloseBy(Double latitude, Double longitude, 
       LocalTime currentTime, Double servingRadiusInKms) {
-
+    
     List<Restaurant> restaurants = new ArrayList<>();
     List<RestaurantEntity> restaurantEntityList = restaurantRepository.findAll();
     // CHECKSTYLE:OFF
     // CHECKSTYLE:ON
     ModelMapper mapper = modelMapperProvider.get();
+    //System.out.println(restaurantEntityList.size());
+    //System.out.println("Current Time = " + currentTime);
+   
     for (RestaurantEntity restaurantEntity : restaurantEntityList) {
 
       if (isRestaurantCloseByAndOpen(restaurantEntity, currentTime, latitude,
@@ -100,7 +103,6 @@ public class RestaurantRepositoryServiceImpl implements RestaurantRepositoryServ
       return GeoUtils.findDistanceInKm(latitude, longitude, restaurantEntity.getLatitude(),
           restaurantEntity.getLongitude()) < servingRadiusInKms;
     }
-
     return false;
   }
 

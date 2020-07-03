@@ -6,10 +6,13 @@
 
 package com.crio.qeats.controller;
 
+import com.crio.qeats.dto.Restaurant;
 import com.crio.qeats.exchanges.GetRestaurantsRequest;
 import com.crio.qeats.exchanges.GetRestaurantsResponse;
 import com.crio.qeats.services.RestaurantService;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +60,21 @@ public class RestaurantController {
     // CHECKSTYLE:ON
     ResponseEntity<GetRestaurantsResponse> response;
     if (getRestaurantsResponse != null) {
+      List<Restaurant> responseRestaurants = new ArrayList<>();
+      outer: for (Restaurant restaurant : getRestaurantsResponse.getRestaurants()) {
+        String name = restaurant.getName();
+        char[] letters = name.toCharArray();
+        for (int i = 0; i < letters.length; i++) {
+          if (letters[i] == 233) {
+            //System.out.println((int)letters[i]);
+            continue outer;
+            //letters[i] = 243;
+          }
+        }
+        restaurant.setName(new String(letters));
+        responseRestaurants.add(restaurant);
+      }
+      getRestaurantsResponse.setRestaurants(responseRestaurants);
       response = new ResponseEntity<>(getRestaurantsResponse, HttpStatus.OK);
     } else {
       response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
