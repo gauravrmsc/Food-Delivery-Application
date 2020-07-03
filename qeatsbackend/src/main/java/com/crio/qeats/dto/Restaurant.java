@@ -9,10 +9,10 @@ package com.crio.qeats.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 
 // TODO: CRIO_TASK_MODULE_SERIALIZATION
 //  Implement Restaurant class.
