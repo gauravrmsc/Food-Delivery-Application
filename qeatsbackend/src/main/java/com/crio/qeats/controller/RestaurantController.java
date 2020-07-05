@@ -66,7 +66,7 @@ public class RestaurantController {
         char[] letters = name.toCharArray();
         for (int i = 0; i < letters.length; i++) {
           if (letters[i] == 233) {
-            continue outer;
+            letters[i] = 'e';
           }
         }
         restaurant.setName(new String(letters));
