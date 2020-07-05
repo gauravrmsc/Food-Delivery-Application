@@ -42,7 +42,7 @@ public class RestaurantController {
   @Autowired
   private RestaurantService restaurantService;
 
-  @RequestMapping("/")
+  @RequestMapping("/hello")
   public String hello() {
     return "Hello";
   }
@@ -66,9 +66,7 @@ public class RestaurantController {
         char[] letters = name.toCharArray();
         for (int i = 0; i < letters.length; i++) {
           if (letters[i] == 233) {
-            //System.out.println((int)letters[i]);
             continue outer;
-            //letters[i] = 243;
           }
         }
         restaurant.setName(new String(letters));
