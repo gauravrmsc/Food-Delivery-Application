@@ -35,13 +35,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Restaurant {
+  
   String id;
   String restaurantId;
   String name;
   String city;
   String imageUrl;
-  double latitude;
-  double longitude;
+  Double latitude;
+  Double longitude;
   String opensAt;
   String closesAt;
   List<String> attributes;
@@ -78,19 +79,19 @@ public class Restaurant {
     this.imageUrl = imageUrl;
   }
 
-  public double getLatitude() {
+  public Double getLatitude() {
     return latitude;
   }
 
-  public void setLatitude(double latitude) {
+  public void setLatitude(Double latitude) {
     this.latitude = latitude;
   }
 
-  public double getLongitude() {
+  public Double getLongitude() {
     return longitude;
   }
 
-  public void setLongitude(double longitude) {
+  public void setLongitude(Double longitude) {
     this.longitude = longitude;
   }
 
