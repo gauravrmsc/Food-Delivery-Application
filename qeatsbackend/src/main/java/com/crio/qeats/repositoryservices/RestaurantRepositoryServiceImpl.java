@@ -63,7 +63,8 @@ public class RestaurantRepositoryServiceImpl implements RestaurantRepositoryServ
   // Check RestaurantRepositoryService.java file for the interface contract.
   public List<Restaurant> findAllRestaurantsCloseBy(Double latitude, Double longitude, 
       LocalTime currentTime, Double servingRadiusInKms) {
-    
+    //CHECKSTYLE:OFF
+    //long start = System.currentTimeMillis();
     List<Restaurant> restaurants = new ArrayList<>();
     List<RestaurantEntity> restaurantEntityList = restaurantRepository.findAll();
     // CHECKSTYLE:OFF
@@ -80,7 +81,7 @@ public class RestaurantRepositoryServiceImpl implements RestaurantRepositoryServ
         restaurants.add(restaurant);
       }
     }
-
+    //System.out.println("DATA FETCHED in " + (System.currentTimeMillis() - start));
     return restaurants;
   }
 

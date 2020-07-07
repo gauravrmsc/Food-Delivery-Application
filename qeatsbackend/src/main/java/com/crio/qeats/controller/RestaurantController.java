@@ -50,15 +50,24 @@ public class RestaurantController {
   @GetMapping(RESTAURANTS_API)
   public ResponseEntity<GetRestaurantsResponse> getRestaurants(
         GetRestaurantsRequest getRestaurantsRequest) {
-
+    
+    // CHECKSTYLE:OFF
+    //long start = System.currentTimeMillis();
+    ResponseEntity<GetRestaurantsResponse> response;
     log.info("getRestaurants called with {}", getRestaurantsRequest);
-
+    //System.out.println(getRestaurantsRequest.toString());
+    if (getRestaurantsRequest.getLatitude() == null 
+        || getRestaurantsRequest.getLongitude() == null) {
+      response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+      return response;
+    }     
+    
     // CHECKSTYLE:OFF
     GetRestaurantsResponse getRestaurantsResponse = restaurantService.findAllRestaurantsCloseBy(getRestaurantsRequest,
         LocalTime.now());
     log.info("getRestaurants returned {}", getRestaurantsResponse);
     // CHECKSTYLE:ON
-    ResponseEntity<GetRestaurantsResponse> response;
+    
     if (getRestaurantsResponse != null) {
       List<Restaurant> responseRestaurants = new ArrayList<>();
       outer: for (Restaurant restaurant : getRestaurantsResponse.getRestaurants()) {
@@ -77,6 +86,7 @@ public class RestaurantController {
     } else {
       response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
+    //System.out.println("Served in " + (System.currentTimeMillis() - start));
     return response;
 
     // TIP(MODULE_MENUAPI): Model Implementation for getting menu given a

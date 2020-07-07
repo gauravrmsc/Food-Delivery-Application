@@ -52,9 +52,9 @@ public class RestaurantServiceImpl implements RestaurantService {
   @Override
   public GetRestaurantsResponse findAllRestaurantsCloseBy(GetRestaurantsRequest getRestaurantsRequest,
       LocalTime currentTime) {
-    double latitude = getRestaurantsRequest.getLatitude();
-    double longitude = getRestaurantsRequest.getLongitude();
-    double servingRadius = normalHoursServingRadiusInKms;
+    Double latitude = getRestaurantsRequest.getLatitude();
+    Double longitude = getRestaurantsRequest.getLongitude();
+    Double servingRadius = normalHoursServingRadiusInKms;
     for (List<LocalTime> peakTime : peakTimeList) {
       if (currentTime.compareTo(peakTime.get(0)) >= 0 && 
           currentTime.compareTo(peakTime.get(1)) <= 0) {
