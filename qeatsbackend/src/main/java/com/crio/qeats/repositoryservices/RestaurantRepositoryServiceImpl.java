@@ -73,6 +73,9 @@ public class RestaurantRepositoryServiceImpl implements RestaurantRepositoryServ
     //CHECKSTYLE:OFF
     //long start = System.currentTimeMillis();
     List<Restaurant> restaurants = new ArrayList<>();
+    if (!redisConfiguration.isCacheAvailable()) {
+      redisConfiguration.initCache();
+    }
     Jedis jedis = redisConfiguration.getJedisPool().getResource();
     GeoHash geoHash = GeoHash.withCharacterPrecision(latitude, longitude, 7);
     String restaurantJSON = jedis.get(geoHash.toBase32());
