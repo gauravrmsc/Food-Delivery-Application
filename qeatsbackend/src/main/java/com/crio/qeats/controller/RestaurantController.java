@@ -52,7 +52,7 @@ public class RestaurantController {
         GetRestaurantsRequest getRestaurantsRequest) {
     
     // CHECKSTYLE:OFF
-    //long start = System.currentTimeMillis();
+    long start = System.currentTimeMillis();
     ResponseEntity<GetRestaurantsResponse> response;
     log.info("getRestaurants called with {}", getRestaurantsRequest);
     //System.out.println(getRestaurantsRequest.toString());
@@ -86,7 +86,7 @@ public class RestaurantController {
     } else {
       response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
-    //System.out.println("Served in " + (System.currentTimeMillis() - start));
+    System.out.println("Served in " + (System.currentTimeMillis() - start));
     return response;
 
     // TIP(MODULE_MENUAPI): Model Implementation for getting menu given a
